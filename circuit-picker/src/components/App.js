@@ -2,14 +2,15 @@ import React from "react";
 import Header from "./Header/Header";
 import Boulders from "./Boulders/Boulders";
 import Circuit from "./Circuit/Circuit";
+import AddEdit from "./AddEdit/AddEdit";
 class App extends React.Component {
   render() {
     return (
-      <>
-        <Header tagline="pick your climbs" />
+      <div className="container">
         <Boulders />
         <Circuit />
-      </>
+        <AddEdit />
+      </div>
     );
   }
 }

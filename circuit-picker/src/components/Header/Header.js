@@ -1,12 +1,12 @@
 import React from "react";
 
 const Header = props => (
-  <header className="top">
+  <div className="top">
     <h2>Circuit Picker</h2>
     <h3 className="tagline">
       <span>{props.tagline}</span>
     </h3>
-  </header>
+  </div>
 );
 
 export default Header;

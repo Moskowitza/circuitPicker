@@ -5,13 +5,16 @@
   background: blue;
 }
 
-body {
+.container {
   display: flex;
 }
-div {
+
+.top {
+  background-color: lightblue;
+}
+.section {
+  height: 500px;
+  width: 250px;
   background-color: red;
   border: solid black;
-}
-header {
-  background-color: lightblue;
 }
