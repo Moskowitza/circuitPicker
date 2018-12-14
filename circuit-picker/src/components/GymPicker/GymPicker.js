@@ -5,7 +5,7 @@ class GymPicker extends React.Component {
     return (
       <>
         <form className="gym-selector">
-          <h2>Enter a Gym Name</h2>
+          <h2>This is the Gym Picker Component</h2>
           <input type="text" required placeholder="gym name" />
           <button type="submit">visit gym</button>
         </form>
