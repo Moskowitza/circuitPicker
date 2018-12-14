@@ -3,9 +3,12 @@ import React from "react";
 class Header extends React.Component {
   render() {
     return (
-      <>
-        <h2>Header</h2>
-      </>
+      <Header className="top">
+        <h2>Circuit Picker</h2>
+        <h3 className="tagline">
+          <span>climb on</span>
+        </h3>
+      </Header>
     );
   }
 }
