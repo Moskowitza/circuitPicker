@@ -6,7 +6,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Header />
+        <Header tagline="pick your climbs" />
         <Boulders />
         <Circuit />
       </>
