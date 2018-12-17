@@ -2,15 +2,17 @@ import React from "react";
 import { getFunName } from "../../helpers";
 class GymPicker extends React.Component {
   myInput = React.createRef();
+
   goToGym = e => {
     //prevent form from submitting
     e.preventDefault();
-    console.log(this.myInput);
     // get input text
-
+    // const gymName = this.myInput.value.value;
+    const gymName = this.myInput.current.value;
     // change page to the gym name
+    this.props.history.push(`/gym/${gymName}`);
   };
-  componentDidMount = () => console.log("mounted");
+  // componentDidMount = () => console.log("mounted");
   render() {
     return (
       <>
