@@ -8,6 +8,7 @@ class Inventory extends React.Component {
         <Header tagline="Add and Edit" />
         <h2>Inventory</h2>
         <AddEdit addClimb={this.props.addClimb} />
+        <button onClick={this.props.loadSamples}>load Samples</button>
       </div>
     );
   }

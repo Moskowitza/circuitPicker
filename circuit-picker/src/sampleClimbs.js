@@ -4,7 +4,7 @@ const climbs = {
     color: "Orange",
     image: "/images/boulderProblem-1.jpg",
     desc: "Orange Climb starts on arete.",
-    price: "v1",
+    grade: "v1",
     wall: "Window",
     status: "available"
   },
@@ -13,7 +13,7 @@ const climbs = {
     color: "Black",
     image: "/images/boulderProblem-1.jpg",
     desc: "Juggy black holds",
-    price: "v0",
+    grade: "v0",
     wall: "Window",
     status: "available"
   },
@@ -21,7 +21,7 @@ const climbs = {
     color: "Red",
     image: "/images/boulderProblem-1.jpg",
     desc: "Juggy black holds",
-    price: "v3",
+    grade: "v3",
     wall: "Window",
     status: "available"
   }

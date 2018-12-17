@@ -2,6 +2,7 @@ import React from "react";
 import Boulders from "./Boulders/Boulders";
 import Circuit from "./Circuit/Circuit";
 import Inventory from "./Inventory/Inventory";
+import sampleClimbs from "../sampleClimbs";
 class App extends React.Component {
   state = {
     climbs: {},
@@ -17,12 +18,15 @@ class App extends React.Component {
       climbs
     });
   };
+  loadSamples = samples => {
+    this.setState({ climbs: sampleClimbs });
+  };
   render() {
     return (
       <div className="container">
         <Boulders />
         <Circuit />
-        <Inventory addClimb={this.addClimb} />
+        <Inventory addClimb={this.addClimb} loadSamples={this.loadSamples} />
       </div>
     );
   }
