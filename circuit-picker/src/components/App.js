@@ -35,7 +35,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <Boulders climbs={this.state.climbs} addToCircuit={this.addToCircuit} />
-        <Circuit />
+        <Circuit circuit={this.state.circuit} climbs={this.state.climbs} />
         <Inventory addClimb={this.addClimb} loadSamples={this.loadSamples} />
       </div>
     );
