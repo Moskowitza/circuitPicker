@@ -3,11 +3,23 @@ import Boulders from "./Boulders/Boulders";
 import Circuit from "./Circuit/Circuit";
 import Inventory from "./Inventory/Inventory";
 import sampleClimbs from "../sampleClimbs";
+import base from "../base";
 class App extends React.Component {
   state = {
     climbs: {},
     circuit: {}
   };
+  componentDidMount() {
+    const { params } = this.props.match;
+    this.ref = base.syncState(`${params.gymId}/climbs`, {
+      context: this,
+      state: "climbs"
+    });
+  }
+  componentWillUnmount() {
+    console.log("unmounting");
+    base.removeBinding(this.ref);
+  }
   addClimb = climb => {
     console.log(`Adding${climb}`);
     //take copy of current state
