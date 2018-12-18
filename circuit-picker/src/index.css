@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 .gym-selector > h2 {
   font: 1rem;
   color: pink;
@@ -17,4 +20,21 @@
   width: 250px;
   background-color: red;
   border: solid black;
+}
+
+.single-climb {
+  background-color: #ffc0cb;
+  height: 150px;
+  margin: 0px;
+}
+.single-climb > * {
+  margin: 0px;
+}
+.thumbnail {
+  height: 50px;
+  width: 50px;
+  float: left;
+}
+ul {
+  list-style-type: none;
 }
