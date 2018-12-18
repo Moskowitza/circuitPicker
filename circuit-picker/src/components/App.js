@@ -21,10 +21,20 @@ class App extends React.Component {
   loadSamples = samples => {
     this.setState({ climbs: sampleClimbs });
   };
+  addToCircuit = key => {
+    //copy state
+    const circuit = { ...this.state.circuit };
+    //add or update circuit
+    circuit[key] = circuit[key] + 1 || 1;
+    //call setState
+    this.setState({
+      circuit
+    });
+  };
   render() {
     return (
       <div className="container">
-        <Boulders climbs={this.state.climbs} />
+        <Boulders climbs={this.state.climbs} addToCircuit={this.addToCircuit} />
         <Circuit />
         <Inventory addClimb={this.addClimb} loadSamples={this.loadSamples} />
       </div>

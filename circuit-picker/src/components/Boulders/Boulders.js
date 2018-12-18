@@ -12,7 +12,12 @@ class Boulders extends React.Component {
         <ul>
           {this.props.climbs
             ? Object.keys(this.props.climbs).map(key => (
-                <Boulder key={key} details={this.props.climbs[key]} />
+                <Boulder
+                  key={key}
+                  index={key}
+                  details={this.props.climbs[key]}
+                  addToCircuit={this.props.addToCircuit}
+                />
               ))
             : ""}
           {/* <Boulder /> */}

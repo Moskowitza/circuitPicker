@@ -23,7 +23,7 @@ const climbs = {
     desc: "Juggy black holds",
     grade: "v3",
     wall: "Window",
-    status: "available"
+    status: "unavailable"
   }
 };
 
