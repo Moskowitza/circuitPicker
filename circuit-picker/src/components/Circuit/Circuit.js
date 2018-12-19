@@ -5,7 +5,8 @@ class Circuit extends React.Component {
   renderCircuit = key => {
     const climb = this.props.climbs[key];
     const count = this.props.circuit[key];
-    const isAvailable = climb.status === "available";
+    const isAvailable = climb && climb.status === "available";
+    if (!climb) return null;
     if (!isAvailable) {
       return (
         <li key={key}>

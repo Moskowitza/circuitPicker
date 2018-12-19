@@ -11,6 +11,10 @@ class App extends React.Component {
   };
   componentDidMount() {
     const { params } = this.props.match;
+    const localStorageRef = localStorage.getItem(params.gymId);
+    if (localStorageRef) {
+      this.setState({ circuit: JSON.parse(localStorageRef) });
+    }
     this.ref = base.syncState(`${params.gymId}/climbs`, {
       context: this,
       state: "climbs"
@@ -20,6 +24,13 @@ class App extends React.Component {
     console.log("unmounting");
     base.removeBinding(this.ref);
   }
+  componentDidUpdate() {
+    console.log(this.state.circuit);
+    const { params } = this.props.match;
+    localStorage.setItem(params.gymId, JSON.stringify(this.state.circuit));
+    console.log("updated");
+  }
+
   addClimb = climb => {
     console.log(`Adding${climb}`);
     //take copy of current state
