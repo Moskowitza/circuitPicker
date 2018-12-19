@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../Header/Header";
-
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 class Circuit extends React.Component {
   renderCircuit = key => {
     const climb = this.props.climbs[key];
@@ -9,16 +9,28 @@ class Circuit extends React.Component {
     if (!climb) return null;
     if (!isAvailable) {
       return (
-        <li key={key}>
-          Sorry {climb ? climb.color : "this climb"} is no longer set
-        </li>
+        <CSSTransition
+          classNames="circuit"
+          key={key}
+          timeout={{ enter: 250, exit: 250 }}
+        >
+          <li key={key}>
+            Sorry {climb ? climb.color : "this climb"} is no longer set
+          </li>
+        </CSSTransition>
       );
     }
     return (
-      <li key={key}>
-        {count} {climb.color} {climb.grade}
-        <button onClick={() => this.props.removeFromCircuit(key)}>-</button>
-      </li>
+      <CSSTransition
+        classNames="circuit"
+        key={key}
+        timeout={{ enter: 250, exit: 250 }}
+      >
+        <li key={key}>
+          {count} {climb.color} {climb.grade}
+          <button onClick={() => this.props.removeFromCircuit(key)}>-</button>
+        </li>
+      </CSSTransition>
     );
   };
 
@@ -37,8 +49,9 @@ class Circuit extends React.Component {
       <div className="section">
         <Header tagline="circuit picker tool" />
         <h2>Circuit</h2>
-        <ul>{climbIds.map(this.renderCircuit)}</ul>
-        {/* <div className="climbName">{climbIds}</div> */}
+        <TransitionGroup component="ul" className="circuit">
+          {climbIds.map(this.renderCircuit)}
+        </TransitionGroup>
         <div className="total">{total}</div>
       </div>
     );

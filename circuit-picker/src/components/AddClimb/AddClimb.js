@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./AddClimb.css";
 class AddClimb extends React.Component {
   colorRef = React.createRef();
   imageRef = React.createRef();
@@ -23,7 +23,7 @@ class AddClimb extends React.Component {
   };
   render() {
     return (
-      <form className="edit-climb" onSubmit={this.addOrEdit}>
+      <form className="add-climb" onSubmit={this.addOrEdit}>
         <input
           name="color"
           ref={this.colorRef}
