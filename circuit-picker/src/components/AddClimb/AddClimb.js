@@ -1,6 +1,6 @@
 import React from "react";
 
-class AddEdit extends React.Component {
+class AddClimb extends React.Component {
   colorRef = React.createRef();
   imageRef = React.createRef();
   descRef = React.createRef();
@@ -53,4 +53,4 @@ class AddEdit extends React.Component {
     );
   }
 }
-export default AddEdit;
+export default AddClimb;

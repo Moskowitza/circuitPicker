@@ -41,6 +41,14 @@ class App extends React.Component {
       climbs
     });
   };
+  updateClimb = (key, updatedClimb) => {
+    //take copy and then update
+    const climbs = { ...this.state.climbs };
+    climbs[key] = updatedClimb;
+    this.setState({
+      climbs
+    });
+  };
   loadSamples = samples => {
     this.setState({ climbs: sampleClimbs });
   };
@@ -59,7 +67,12 @@ class App extends React.Component {
       <div className="container">
         <Boulders climbs={this.state.climbs} addToCircuit={this.addToCircuit} />
         <Circuit circuit={this.state.circuit} climbs={this.state.climbs} />
-        <Inventory addClimb={this.addClimb} loadSamples={this.loadSamples} />
+        <Inventory
+          addClimb={this.addClimb}
+          loadSamples={this.loadSamples}
+          climbs={this.state.climbs}
+          updateClimb={this.updateClimb}
+        />
       </div>
     );
   }
