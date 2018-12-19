@@ -50,6 +50,9 @@ class EditClimb extends React.Component {
           <option value="set">Climb On</option>
           <option value="removed">Removed</option>
         </select>
+        <button onClick={() => this.props.deleteClimb(this.props.index)}>
+          Remove
+        </button>
       </div>
     );
   }

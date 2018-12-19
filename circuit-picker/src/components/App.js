@@ -49,6 +49,25 @@ class App extends React.Component {
       climbs
     });
   };
+  deleteClimb = key => {
+    //copy state
+    const climbs = { ...this.state.climbs };
+    // update state
+    climbs[key] = null;
+    this.setState({
+      climbs
+    });
+  };
+  removeFromCircuit = key => {
+    //copy state
+    const circuit = { ...this.state.circuit };
+    // update state
+    // circuit[key] = circuit[key] - 1;
+    delete circuit[key];
+    this.setState({
+      circuit
+    });
+  };
   loadSamples = samples => {
     this.setState({ climbs: sampleClimbs });
   };
@@ -66,12 +85,17 @@ class App extends React.Component {
     return (
       <div className="container">
         <Boulders climbs={this.state.climbs} addToCircuit={this.addToCircuit} />
-        <Circuit circuit={this.state.circuit} climbs={this.state.climbs} />
+        <Circuit
+          circuit={this.state.circuit}
+          climbs={this.state.climbs}
+          removeFromCircuit={this.removeFromCircuit}
+        />
         <Inventory
           addClimb={this.addClimb}
           loadSamples={this.loadSamples}
           climbs={this.state.climbs}
           updateClimb={this.updateClimb}
+          deleteClimb={this.deleteClimb}
         />
       </div>
     );

@@ -17,6 +17,7 @@ class Circuit extends React.Component {
     return (
       <li key={key}>
         {count} {climb.color} {climb.grade}
+        <button onClick={() => this.props.removeFromCircuit(key)}>-</button>
       </li>
     );
   };

@@ -11,6 +11,7 @@ class Inventory extends React.Component {
 
         {Object.keys(this.props.climbs).map(key => (
           <EditClimb
+            deleteClimb={this.props.deleteClimb}
             key={key}
             index={key}
             climb={this.props.climbs[key]}
