@@ -47,8 +47,8 @@ class EditClimb extends React.Component {
           value={this.props.climb.status}
           onChange={this.handleChange}
         >
-          <option value="set">Climb On</option>
-          <option value="removed">Removed</option>
+          <option value="available">Climb On</option>
+          <option value="unavailable">Removed</option>
         </select>
         <button onClick={() => this.props.deleteClimb(this.props.index)}>
           Remove

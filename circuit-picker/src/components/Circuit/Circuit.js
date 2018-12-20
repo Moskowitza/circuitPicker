@@ -6,14 +6,15 @@ class Circuit extends React.Component {
     const climb = this.props.climbs[key];
     const count = this.props.circuit[key];
     const isAvailable = climb && climb.status === "available";
+    const transitionOptions = {
+      classNames: "circuit",
+      key,
+      timeout: { enter: 250, exit: 250 }
+    };
     if (!climb) return null;
     if (!isAvailable) {
       return (
-        <CSSTransition
-          classNames="circuit"
-          key={key}
-          timeout={{ enter: 250, exit: 250 }}
-        >
+        <CSSTransition {...transitionOptions}>
           <li key={key}>
             Sorry {climb ? climb.color : "this climb"} is no longer set
           </li>
@@ -21,11 +22,7 @@ class Circuit extends React.Component {
       );
     }
     return (
-      <CSSTransition
-        classNames="circuit"
-        key={key}
-        timeout={{ enter: 250, exit: 250 }}
-      >
+      <CSSTransition {...transitionOptions}>
         <li key={key}>
           {count} {climb.color} {climb.grade}
           <button onClick={() => this.props.removeFromCircuit(key)}>-</button>

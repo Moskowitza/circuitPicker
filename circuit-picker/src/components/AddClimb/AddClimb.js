@@ -45,8 +45,8 @@ class AddClimb extends React.Component {
         />
         <input name="wall" ref={this.wallRef} type="text" placeholder="Wall" />
         <select name="status" ref={this.statusRef}>
-          <option value="set">Climb On</option>
-          <option value="removed">Removed</option>
+          <option value="available">Climb On</option>
+          <option value="unavailable">Removed</option>
         </select>
         <button type="submit">Save</button>
       </form>
