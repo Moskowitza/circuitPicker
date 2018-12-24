@@ -4,8 +4,8 @@ import Header from "../Header/Header";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 class Circuit extends React.Component {
   static propTypes = {
-    climbs: PropTypes.array,
-    circuit: PropTypes.array
+    climbs: PropTypes.object.isRequired,
+    circuit: PropTypes.object.isRequired
   };
   renderCircuit = key => {
     const climb = this.props.climbs[key];

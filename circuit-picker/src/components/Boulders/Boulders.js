@@ -7,8 +7,8 @@ import Boulder from "../Boulder/Boulder";
 
 class Boulders extends React.Component {
   static propTypes = {
-    climbs: PropTypes.array,
-    addToCircuit: PropTypes.func
+    climbs: PropTypes.object.isRequired,
+    addToCircuit: PropTypes.func.isRequired
   };
   render() {
     return (
