@@ -5,6 +5,8 @@ import Header from "../Header/Header";
 import AddClimb from "../AddClimb/AddClimb";
 import EditClimb from "../EditClimb/EditClimb";
 import SignIn from "../SignIn/SignIn";
+var firebaseui = require("firebaseui");
+
 class Inventory extends React.Component {
   static propTypes = {
     climbs: PropTypes.object.isRequired,
@@ -54,14 +56,22 @@ class Inventory extends React.Component {
         // An error happened.
       });
   };
+  start = () => {
+    const ui = new firebaseui.auth.AuthUI(firebase.auth());
+    ui.start("#firebaseui-auth-container", {
+      signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID]
+      // Other config options...
+    });
+  };
+
   render() {
     const logout = <button onClick={this.signOut}>Sign Out</button>;
 
     // check if they are logged in
     if (!this.state.uid) {
-      return <SignIn signUp={this.signUp} signIn={this.signIn} />;
+      return <button onClick={this.start}>Register</button>;
     }
-    //check if they are the Gym Owner
+    //if logged in, check if they are the Gym Owner
     if (this.state.uid !== this.state.owner) {
       return (
         <div>

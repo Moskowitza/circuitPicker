@@ -21,6 +21,7 @@ class SignUpForm extends React.Component {
     alert(`Username: ${this.state.email}\nPassword: ${this.state.password}`);
     this.signUp(this.state.email, this.state.password);
   };
+
   signUp = (email, password) => {
     firebase
       .auth()
