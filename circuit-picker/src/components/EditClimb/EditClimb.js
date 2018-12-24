@@ -1,6 +1,18 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 class EditClimb extends React.Component {
+  static propTypes = {
+    updateClimb: PropTypes.func,
+    climb: PropTypes.shape({
+      image: PropTypes.string,
+      color: PropTypes.string,
+      desc: PropTypes.string,
+      grade: PropTypes.string,
+      wall: PropTypes.string,
+      status: PropTypes.string
+    })
+  };
   handleChange = event => {
     //update the climb
     //get copy of current climb

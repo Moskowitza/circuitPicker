@@ -1,5 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
 class Boulder extends React.Component {
+  static propTypes = {
+    details: PropTypes.shape({
+      image: PropTypes.string,
+      color: PropTypes.string,
+      desc: PropTypes.string,
+      grade: PropTypes.string,
+      wall: PropTypes.string,
+      status: PropTypes.string
+    }),
+    addToCircuit: PropTypes.func
+  };
   handleClick = () => {
     this.props.addToCircuit(this.props.index);
   };

@@ -1,9 +1,15 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Header from "../Header/Header";
 import Boulder from "../Boulder/Boulder";
+
 // import Boulder from "../Boulder/Boulder";
 
 class Boulders extends React.Component {
+  static propTypes = {
+    climbs: PropTypes.array,
+    addToCircuit: PropTypes.func
+  };
   render() {
     return (
       <div className="section">

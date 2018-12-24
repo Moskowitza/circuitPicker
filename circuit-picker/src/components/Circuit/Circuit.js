@@ -1,7 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Header from "../Header/Header";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 class Circuit extends React.Component {
+  static propTypes = {
+    climbs: PropTypes.array,
+    circuit: PropTypes.array
+  };
   renderCircuit = key => {
     const climb = this.props.climbs[key];
     const count = this.props.circuit[key];

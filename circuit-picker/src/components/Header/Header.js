@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Header = props => (
   <div className="top">
@@ -8,5 +9,7 @@ const Header = props => (
     </h3>
   </div>
 );
-
+Header.propTypes = {
+  tagline: PropTypes.string.isRequired
+};
 export default Header;

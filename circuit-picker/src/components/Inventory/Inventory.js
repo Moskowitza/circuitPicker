@@ -1,8 +1,14 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Header from "../Header/Header";
 import AddClimb from "../AddClimb/AddClimb";
 import EditClimb from "../EditClimb/EditClimb";
 class Inventory extends React.Component {
+  static propTypes = {
+    climbs: PropTypes.array,
+    addClimb: PropTypes.func,
+    loadSamples: PropTypes.func
+  };
   render() {
     return (
       <div className="section">
