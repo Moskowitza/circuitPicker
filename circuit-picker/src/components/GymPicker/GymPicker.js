@@ -6,7 +6,7 @@ import firebase from "firebase";
 class GymPicker extends React.Component {
   myInput = React.createRef();
   state = {
-    gyms: null
+    gyms: []
   };
   getGyms() {
     base.fetch("/", {
@@ -21,7 +21,7 @@ class GymPicker extends React.Component {
       }
     });
   }
-  componentDidMount() {
+  componentWillMount() {
     this.getGyms();
   }
   goToGym = e => {
@@ -46,6 +46,11 @@ class GymPicker extends React.Component {
             placeholder="Gym Name"
             defaultValue={getFunName()}
           />
+          <select name="gym" ref={this.gymRef}>
+            {this.state.gyms.map(gym => (
+              <option value="${gym}">{gym}</option>
+            ))}
+          </select>
           <button type="submit">visit gym</button>
         </form>
       </>
