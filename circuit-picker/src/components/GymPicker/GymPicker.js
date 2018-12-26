@@ -46,9 +46,12 @@ class GymPicker extends React.Component {
             placeholder="Gym Name"
             defaultValue={getFunName()}
           />
-          <select name="gym" ref={this.gymRef}>
+          <button type="submit">visit gym</button>
+        </form>
+        <form className="gym-selector" onSubmit={this.goToGym}>
+          <select name="gym" ref={this.myInput}>
             {this.state.gyms.map(gym => (
-              <option value="${gym}">{gym}</option>
+              <option value={gym}>{gym}</option>
             ))}
           </select>
           <button type="submit">visit gym</button>
