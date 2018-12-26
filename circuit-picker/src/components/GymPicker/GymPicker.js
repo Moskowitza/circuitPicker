@@ -1,8 +1,32 @@
 import React from "react";
 import { getFunName } from "../../helpers";
+import base, { firebaseApp } from "../../base";
+import firebase from "firebase";
+
 class GymPicker extends React.Component {
   myInput = React.createRef();
-
+  state = {
+    gyms: null
+  };
+  getGyms = async () => {
+    firebaseApp
+      .get("circuitpicker", {
+        context: this
+      })
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => {
+        //handle
+        console.log(err);
+      });
+  };
+  componentWillMount() {
+    this.ref = base.syncState(`circuitpicker`, {
+      context: this,
+      state: "gyms"
+    });
+  }
   goToGym = e => {
     //prevent form from submitting
     e.preventDefault();
