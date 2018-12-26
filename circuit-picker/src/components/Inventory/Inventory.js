@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import firebase from "firebase";
-import { firebaseApp } from "../../base";
+import base, { firebaseApp } from "../../base";
 import Header from "../Header/Header";
 import AddClimb from "../AddClimb/AddClimb";
 import EditClimb from "../EditClimb/EditClimb";
@@ -19,6 +19,18 @@ class Inventory extends React.Component {
     owner: null
   };
   authHandler = async authData => {
+    //1 Look up current Gym in Database
+    const gym = await base.fetch(this.props.gymId, { context: this });
+    console.log(gym); //this returns the climbs for the gym
+    //2 If there is no Onwer, it is up for grabs?
+    if (!gym.owner) {
+      // save it as our own
+      await base.post(`${this.props.storeId}/owner`, {
+        data: authData.user.uid
+      });
+    }
+    //3 Set the state of inventory component to reflect current user,
+    //they have access to the gym's routes
     console.log(authData);
   };
   authenticate = provider => {

@@ -96,6 +96,7 @@ class App extends React.Component {
           climbs={this.state.climbs}
           updateClimb={this.updateClimb}
           deleteClimb={this.deleteClimb}
+          gymId={this.props.match.params.gymId}
         />
       </div>
     );
