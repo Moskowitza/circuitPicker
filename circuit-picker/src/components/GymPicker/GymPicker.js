@@ -8,24 +8,21 @@ class GymPicker extends React.Component {
   state = {
     gyms: null
   };
-  getGyms = async () => {
-    firebaseApp
-      .get("circuitpicker", {
-        context: this
-      })
-      .then(data => {
-        console.log(data);
-      })
-      .catch(err => {
-        //handle
-        console.log(err);
-      });
-  };
-  componentWillMount() {
-    this.ref = base.syncState(`circuitpicker`, {
+  getGyms() {
+    base.fetch("/", {
       context: this,
-      state: "gyms"
+      asArray: true,
+      then(data) {
+        const gyms = [];
+        data.forEach(gym => {
+          gyms.push(gym.key);
+        });
+        this.setState({ gyms });
+      }
     });
+  }
+  componentDidMount() {
+    this.getGyms();
   }
   goToGym = e => {
     //prevent form from submitting
