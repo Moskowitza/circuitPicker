@@ -12,7 +12,7 @@ class Boulders extends React.Component {
   };
   render() {
     return (
-      <div className="section">
+      <div className="section boulders">
         <Header tagline="pick your climbs" />
         <h2>Boulders</h2>
         <ul>
