@@ -24,7 +24,7 @@ class EditClimb extends React.Component {
   };
   render() {
     return (
-      <div className="climb-edit">
+      <div className="add-climb">
         <input
           name="color"
           value={this.props.climb.color}
@@ -39,7 +39,13 @@ class EditClimb extends React.Component {
           placeholder="Image"
           onChange={this.handleChange}
         />
-        <textarea name="desc" ref={this.descRef} placeholder="Description" />
+        <textarea
+          className="desc"
+          name="desc"
+          ref={this.descRef}
+          placeholder="Description"
+          onChange={this.handleChange}
+        />
         <input
           name="grade"
           value={this.props.climb.grade}

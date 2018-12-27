@@ -1,5 +1,5 @@
 import React from "react";
-import "./AddClimb.css";
+
 class AddClimb extends React.Component {
   colorRef = React.createRef();
   imageRef = React.createRef();
