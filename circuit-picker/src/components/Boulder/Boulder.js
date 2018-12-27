@@ -20,11 +20,15 @@ class Boulder extends React.Component {
     const isAvailable = status === "available";
     return (
       <li className="single-climb">
-        <img className="thumbnail" src={image} alt={color} />
-        <h3>{color}</h3>
-        <h4>{grade} </h4>
-        <p>{desc}</p>
-        <p>{wall}</p>
+        <div className="info">
+          <img className="thumbnail" src={image} alt={color} />
+          <div className="details">
+            <h3>{color}</h3>
+            <h4>{grade} </h4>
+            <p>{desc}</p>
+            <p>{wall}</p>
+          </div>
+        </div>
         <button disabled={!isAvailable} onClick={this.handleClick}>
           {isAvailable ? "Add to Circuit" : "Sorry"}
         </button>

@@ -83,21 +83,26 @@ class App extends React.Component {
   };
   render() {
     return (
-      <div className="container">
-        <Boulders climbs={this.state.climbs} addToCircuit={this.addToCircuit} />
-        <Circuit
-          circuit={this.state.circuit}
-          climbs={this.state.climbs}
-          removeFromCircuit={this.removeFromCircuit}
-        />
-        <Inventory
-          addClimb={this.addClimb}
-          loadSamples={this.loadSamples}
-          climbs={this.state.climbs}
-          updateClimb={this.updateClimb}
-          deleteClimb={this.deleteClimb}
-          gymId={this.props.match.params.gymId}
-        />
+      <div className="app-container">
+        <div className="app-components">
+          <Boulders
+            climbs={this.state.climbs}
+            addToCircuit={this.addToCircuit}
+          />
+          <Circuit
+            circuit={this.state.circuit}
+            climbs={this.state.climbs}
+            removeFromCircuit={this.removeFromCircuit}
+          />
+          <Inventory
+            addClimb={this.addClimb}
+            loadSamples={this.loadSamples}
+            climbs={this.state.climbs}
+            updateClimb={this.updateClimb}
+            deleteClimb={this.deleteClimb}
+            gymId={this.props.match.params.gymId}
+          />
+        </div>
       </div>
     );
   }

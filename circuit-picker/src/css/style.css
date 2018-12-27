@@ -2,15 +2,42 @@
   transition: all 0.5s;
   transform: translate(-120%);
 }
-h2 {
-  color: #f00;
+.container {
+  display: flex;
+  flex-direction: column;
 }
-body {
-  background: color;
+.app-components {
+  display: flex;
+  flex-direction: row;
 }
-h2 {
-  color: #f00;
+.section {
+  width: 20%;
+  border: 4px solid #000;
 }
-body {
-  background: color;
+.single-climb {
+  display: flex;
+  flex-direction: column;
+  background: #ffc0cb;
+  width: 400px;
+}
+.single-climb * {
+  margin: 0;
+}
+.single-climb button {
+  width: 100%;
+}
+.thumbnail {
+  width: 100px;
+  height: 100px;
+  float: left;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
