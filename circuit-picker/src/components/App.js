@@ -2,7 +2,6 @@ import React from "react";
 import Boulders from "./Boulders/Boulders";
 import Circuit from "./Circuit/Circuit";
 import Header from "./Header/Header";
-
 import Inventory from "./Inventory/Inventory";
 import sampleClimbs from "../sampleClimbs";
 import base from "../base";
@@ -83,16 +82,7 @@ class App extends React.Component {
       circuit
     });
   };
-  saveCircuit = () => {
-    console.log("saveCircuit button clicked");
-    const gymName = this.props.match.params.gymId;
-    const ciruitName = "circuitname";
-    this.ref = base.post(`${gymName}/${ciruitName}`, {
-      data: this.state.circuit
-    });
 
-    this.props.history.push(`/gym/${gymName}/${ciruitName}`);
-  };
   render() {
     return (
       <div className="app-container">
@@ -103,7 +93,8 @@ class App extends React.Component {
             addToCircuit={this.addToCircuit}
           />
           <Circuit
-            saveCircuit={this.saveCircuit}
+            history={this.props.history}
+            gymName={this.props.match.params.gymId}
             circuit={this.state.circuit}
             climbs={this.state.climbs}
             removeFromCircuit={this.removeFromCircuit}

@@ -2,11 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 // import Header from "../Header/Header";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { getFunName } from "../../helpers";
+import base from "../../base";
+
 class Circuit extends React.Component {
+  myCircuit = React.createRef();
   static propTypes = {
     climbs: PropTypes.object.isRequired,
-    circuit: PropTypes.object.isRequired,
-    saveCircuit: PropTypes.func.isRequired
+    circuit: PropTypes.object.isRequired
   };
   renderCircuit = key => {
     const climb = this.props.climbs[key];
@@ -38,6 +41,19 @@ class Circuit extends React.Component {
       </CSSTransition>
     );
   };
+  saveCircuit = e => {
+    // Prevent this function from running
+    e.preventDefault();
+    const myCircuit = this.myCircuit.current.value;
+    console.log(`saveCircuit circuitName ${myCircuit}`);
+    const gymName = this.props.gymName;
+    console.log(`saveCircuit gymName ${gymName}`);
+    this.ref = base.post(`${gymName}/${myCircuit}`, {
+      data: this.props.circuit
+    });
+    // change page to the RunCircuit
+    this.props.history.push(`../${gymName}/${myCircuit}`);
+  };
 
   render() {
     const climbIds = this.props.circuit ? Object.keys(this.props.circuit) : 0;
@@ -59,7 +75,16 @@ class Circuit extends React.Component {
           {climbIds.map(this.renderCircuit)}
         </TransitionGroup>
         <div className="total">{total}</div>
-        <button onClick={this.props.saveCircuit}>Save</button>
+        <form onSubmit={this.saveCircuit}>
+          <input
+            type="text"
+            ref={this.myCircuit}
+            required
+            placeholder="circuit Name"
+            defaultValue={getFunName()}
+          />
+          <button type="submit">Save Circuit</button>
+        </form>
       </div>
     );
   }
