@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Header from "../Header/Header";
+// import Header from "../Header/Header";
 import Boulder from "../Boulder/Boulder";
 
 // import Boulder from "../Boulder/Boulder";
@@ -13,7 +13,7 @@ class Boulders extends React.Component {
   render() {
     return (
       <div className="section boulders">
-        <Header tagline="pick your climbs" />
+        {/* <Header tagline="pick your climbs" /> */}
         <h2>Boulders</h2>
         <ul>
           {this.props.climbs

@@ -1,7 +1,6 @@
 import React from "react";
 import { getFunName } from "../../helpers";
-import base, { firebaseApp } from "../../base";
-import firebase from "firebase";
+import base from "../../base";
 
 class GymPicker extends React.Component {
   myInput = React.createRef();

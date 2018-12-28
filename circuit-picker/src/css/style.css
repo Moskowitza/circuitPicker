@@ -3,6 +3,8 @@
   transform: translate(-120%);
 }
 .add-climb {
+  margin: 8px;
+  padding: 5px;
   border-style: double;
   border-width: 2px;
   border-color: #000;
@@ -42,6 +44,10 @@
   flex-direction: column;
   background: #ffc0cb;
   width: 100%;
+  margin: 8px 0px;
+  padding: 5px;
+  border: 1px #000 solid;
+  border-radius: 5px;
 }
 .single-climb * {
   margin: 0;
@@ -59,7 +65,7 @@
 }
 .boulders ul {
   margin: 0;
-  padding: 0;
+  padding: 5px;
   float: left;
   list-style: none;
 }

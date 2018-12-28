@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Header from "../Header/Header";
+// import Header from "../Header/Header";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 class Circuit extends React.Component {
   static propTypes = {
     climbs: PropTypes.object.isRequired,
-    circuit: PropTypes.object.isRequired
+    circuit: PropTypes.object.isRequired,
+    saveCircuit: PropTypes.func.isRequired
   };
   renderCircuit = key => {
     const climb = this.props.climbs[key];
@@ -29,8 +30,10 @@ class Circuit extends React.Component {
     return (
       <CSSTransition {...transitionOptions}>
         <li key={key}>
-          {count} {climb.color} {climb.grade}
-          <button onClick={() => this.props.removeFromCircuit(key)}>-</button>
+          color: {climb.color} grade: {climb.grade} repeat {count}
+          <button onClick={() => this.props.removeFromCircuit(key)}>
+            remove
+          </button>
         </li>
       </CSSTransition>
     );
@@ -49,12 +52,14 @@ class Circuit extends React.Component {
     }, 0);
     return (
       <div className="section">
-        <Header tagline="circuit picker tool" />
+        {/* <Header tagline="circuit picker tool" /> */}
         <h2>Circuit</h2>
+
         <TransitionGroup component="ul" className="circuit">
           {climbIds.map(this.renderCircuit)}
         </TransitionGroup>
         <div className="total">{total}</div>
+        <button onClick={this.props.saveCircuit}>Save</button>
       </div>
     );
   }

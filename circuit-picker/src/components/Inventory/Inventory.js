@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import firebase from "firebase";
 import base, { firebaseApp } from "../../base";
-import Header from "../Header/Header";
+// import Header from "../Header/Header";
 import AddClimb from "../AddClimb/AddClimb";
 import EditClimb from "../EditClimb/EditClimb";
 import Login from "../Login/Login";
@@ -28,7 +28,7 @@ class Inventory extends React.Component {
   authHandler = async authData => {
     //1 Look up current Gym in Database
     const gym = await base.fetch(this.props.gymId, { context: this });
-    console.log(gym); //this returns the climbs for the gym
+    //this returns the climbs for the gym
     //2 If there is no Onwer, it is up for grabs?
     if (!gym.owner) {
       // save it as our own
@@ -42,7 +42,6 @@ class Inventory extends React.Component {
       uid: authData.user.uid,
       owner: gym.owner || authData.user.uid
     });
-    console.log(authData);
   };
   authenticate = provider => {
     const authProvider = new firebase.auth[`${provider}AuthProvider`]();
@@ -74,7 +73,7 @@ class Inventory extends React.Component {
     }
     return (
       <div className="section">
-        <Header tagline="Add and Edit" />
+        {/* <Header tagline="Add and Edit" /> */}
         <h2>Inventory</h2>
         {logout}
         {Object.keys(this.props.climbs).map(key => (

@@ -1,6 +1,8 @@
 import React from "react";
 import Boulders from "./Boulders/Boulders";
 import Circuit from "./Circuit/Circuit";
+import Header from "./Header/Header";
+
 import Inventory from "./Inventory/Inventory";
 import sampleClimbs from "../sampleClimbs";
 import base from "../base";
@@ -28,7 +30,7 @@ class App extends React.Component {
     console.log(this.state.circuit);
     const { params } = this.props.match;
     localStorage.setItem(params.gymId, JSON.stringify(this.state.circuit));
-    console.log("updated");
+    console.log("Component Did Update");
   }
 
   addClimb = climb => {
@@ -81,15 +83,27 @@ class App extends React.Component {
       circuit
     });
   };
+  saveCircuit = () => {
+    console.log("saveCircuit button clicked");
+    const gymName = this.props.match.params.gymId;
+    const ciruitName = "circuitname";
+    this.ref = base.post(`${gymName}/${ciruitName}`, {
+      data: this.state.circuit
+    });
+
+    this.props.history.push(`/gym/${gymName}/${ciruitName}`);
+  };
   render() {
     return (
       <div className="app-container">
+        <Header tagline="pick your climbs" />
         <div className="app-components">
           <Boulders
             climbs={this.state.climbs}
             addToCircuit={this.addToCircuit}
           />
           <Circuit
+            saveCircuit={this.saveCircuit}
             circuit={this.state.circuit}
             climbs={this.state.climbs}
             removeFromCircuit={this.removeFromCircuit}
