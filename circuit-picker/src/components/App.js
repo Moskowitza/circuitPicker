@@ -5,6 +5,7 @@ import Header from "./Header/Header";
 import Inventory from "./Inventory/Inventory";
 import sampleClimbs from "../sampleClimbs";
 import base from "../base";
+import RunCircuit from "./RunCircuit/RunCircuit";
 class App extends React.Component {
   state = {
     climbs: {},
@@ -106,6 +107,10 @@ class App extends React.Component {
             updateClimb={this.updateClimb}
             deleteClimb={this.deleteClimb}
             gymId={this.props.match.params.gymId}
+          />
+          <RunCircuit
+            //this is not right
+            circuit={this.props.circuit}
           />
         </div>
       </div>

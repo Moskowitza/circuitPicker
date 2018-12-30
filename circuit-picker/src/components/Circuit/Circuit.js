@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { getFunName } from "../../helpers";
 import base from "../../base";
+import { withRouter } from "react-router-dom";
 
 class Circuit extends React.Component {
   myCircuit = React.createRef();
@@ -52,7 +53,7 @@ class Circuit extends React.Component {
       data: this.props.circuit
     });
     // change page to the RunCircuit
-    this.props.history.push(`../${gymName}/${myCircuit}`);
+    this.props.history.push(`/gym/${gymName}/${myCircuit}`);
   };
 
   render() {
@@ -89,4 +90,4 @@ class Circuit extends React.Component {
     );
   }
 }
-export default Circuit;
+export default withRouter(Circuit);
