@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import base from "../../base";
 
 class RunCircuit extends React.Component {
   static propTypes = {};
@@ -11,14 +12,21 @@ class RunCircuit extends React.Component {
   //we need to create a function that runs the circuit
   componentDidMount() {
     //1 Get our circuit name from the URL?
-    console.log(this.props.match.params.circuitId);
+    const gymId = this.props.match.params.gymId;
+    const circuitId = this.props.match.params.circuitId;
+    const queryString = `/${gymId}/${circuitId}`;
+    console.log(`${queryString}`);
     //Or can we get it from the App and pass it down?
-    const ourCircuit = this.props.circuit;
+    base.fetch(queryString, {
+      context: this,
+      then(data) {
+        console.log(data);
+        this.setState({ ourCircuit: data });
+      }
+    });
+    // const ourCircuit = this.props.circuit;
 
     //2 set it to this component's state
-    this.setState({
-      ourCiruit: ourCircuit
-    });
   }
   //A button to start a timer
   timer() {

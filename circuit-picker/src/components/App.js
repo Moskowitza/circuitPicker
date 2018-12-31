@@ -5,7 +5,7 @@ import Header from "./Header/Header";
 import Inventory from "./Inventory/Inventory";
 import sampleClimbs from "../sampleClimbs";
 import base from "../base";
-import RunCircuit from "./RunCircuit/RunCircuit";
+
 class App extends React.Component {
   state = {
     climbs: {},
