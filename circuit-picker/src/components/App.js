@@ -108,10 +108,6 @@ class App extends React.Component {
             deleteClimb={this.deleteClimb}
             gymId={this.props.match.params.gymId}
           />
-          <RunCircuit
-            //this is not right
-            circuit={this.props.circuit}
-          />
         </div>
       </div>
     );

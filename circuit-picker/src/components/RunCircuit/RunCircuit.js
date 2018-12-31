@@ -11,8 +11,10 @@ class RunCircuit extends React.Component {
   //we need to create a function that runs the circuit
   componentDidMount() {
     //1 Get our circuit name from the URL?
+    console.log(this.props.match.params.circuitId);
     //Or can we get it from the App and pass it down?
     const ourCircuit = this.props.circuit;
+
     //2 set it to this component's state
     this.setState({
       ourCiruit: ourCircuit
