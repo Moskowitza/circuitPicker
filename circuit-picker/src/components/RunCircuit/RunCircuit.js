@@ -31,17 +31,32 @@ class RunCircuit extends React.Component {
     console.log("timer started");
   }
   //remove climb after
+  tickClimb = key => {
+    //copy state
+    console.log(`removing ${key}`);
+    const ourCircuit = { ...this.state.ourCircuit };
+    // update state
+    ourCircuit[key] = ourCircuit[key] - 1;
+    this.setState({
+      ourCircuit
+    });
+  };
   output = repeater => {
     let reps = repeater;
     console.log(`reps ${reps}`);
-    return function(key) {
+    return key => {
       let i = 0;
       let result = [];
       while (i < reps) {
         i++;
         console.log(i, key);
         console.log(`are we looping ${key} this ${i} many times ${reps}`);
-        result.push(<div key={key + i}>{key}</div>);
+        result.push(
+          <div>
+            <div key={key + i}>{key}</div>
+            <button onClick={() => this.tickClimb(key)}>tick</button>
+          </div>
+        );
       }
       return result;
     };
