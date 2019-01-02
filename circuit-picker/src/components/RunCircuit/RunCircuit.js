@@ -1,6 +1,7 @@
 import React from "react";
 // import PropTypes from "prop-types";
 import base from "../../base";
+import Timer from "../Timer/Timer";
 
 class RunCircuit extends React.Component {
   //   static propTypes = {};
@@ -65,6 +66,7 @@ class RunCircuit extends React.Component {
     return (
       <div className="top">
         <h2>RunCircuit</h2>
+        <Timer />
         <div>
           {Object.keys(this.state.ourCircuit).map(key => {
             const repeater = parseInt(this.state.ourCircuit[key]);
@@ -72,7 +74,6 @@ class RunCircuit extends React.Component {
             return repeatThis(key);
           })}
         </div>
-        <button onClick={this.timer}>Time Me</button>
       </div>
     );
   }
