@@ -1,6 +1,7 @@
 import React from "react";
 import { getFunName } from "../../helpers";
 import base from "../../base";
+import Header from "../Header/Header";
 
 class GymPicker extends React.Component {
   myInput = React.createRef();
@@ -36,6 +37,7 @@ class GymPicker extends React.Component {
   render() {
     return (
       <>
+        <Header tagline="Pick  A Gym & Design a Circuit" />
         <form className="gym-selector" onSubmit={this.goToGym}>
           <h2>This is the Gym Picker Component</h2>
           <input

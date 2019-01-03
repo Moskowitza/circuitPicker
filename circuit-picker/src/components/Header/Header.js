@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Header = props => (
-  <div className="top">
+  <div className="header">
     <h2>Circuit Picker</h2>
     <h3 className="tagline">
       <span>{props.tagline}</span>
